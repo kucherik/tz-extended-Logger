@@ -8,7 +8,7 @@ class SysLogHandler extends AbstractHandler
 {
     public function log(string $level, string $message)
     {
-        if (!in_array($level, $this->levels)) {
+        if (!$this->isEnabled || !in_array($level, $this->levels)) {
             return null;
         }
 
